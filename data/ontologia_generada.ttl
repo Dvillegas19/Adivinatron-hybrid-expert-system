@@ -1,0 +1,999 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ex: <http://ejemplo.org/superheroes/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:Alienigena a rdfs:Class,
+        rdfs:Resource ;
+    rdfs:label "Alienígena" ;
+    dcterms:description "Personaje no humano proveniente del espacio exterior o reinos extra-dimensionales." ;
+    rdfs:subClassOf ex:Alienigena,
+        ex:Personaje,
+        rdfs:Resource .
+
+ex:Equipamiento a rdfs:Class,
+        rdfs:Resource ;
+    rdfs:label "Equipamiento" ;
+    dcterms:description "Artefacto, arma o tecnología empleada." ;
+    rdfs:subClassOf ex:Equipamiento,
+        rdfs:Resource .
+
+ex:HeroeDC a rdfs:Class,
+        rdfs:Resource ;
+    rdfs:label "Héroe de DC" ;
+    dcterms:description "Superhéroe de la editorial DC Comics." ;
+    rdfs:subClassOf ex:HeroeDC,
+        ex:Personaje,
+        ex:Superheroe,
+        rdfs:Resource .
+
+ex:HeroeMarvel a rdfs:Class,
+        rdfs:Resource ;
+    rdfs:label "Héroe de Marvel" ;
+    dcterms:description "Superhéroe de la editorial Marvel Comics." ;
+    rdfs:subClassOf ex:HeroeMarvel,
+        ex:Personaje,
+        ex:Superheroe,
+        rdfs:Resource .
+
+ex:Humano a rdfs:Class,
+        rdfs:Resource ;
+    rdfs:label "Humano" ;
+    dcterms:description "Personaje de origen biológico terrestre." ;
+    rdfs:subClassOf ex:Humano,
+        ex:Personaje,
+        rdfs:Resource .
+
+ex:HumanoMutado a rdfs:Class,
+        rdfs:Resource ;
+    rdfs:label "Humano Mutado" ;
+    dcterms:description "Humano con alteración biológica o genética." ;
+    rdfs:subClassOf ex:Humano,
+        ex:HumanoMutado,
+        ex:Personaje,
+        rdfs:Resource .
+
+ex:HumanoTecnologico a rdfs:Class,
+        rdfs:Resource ;
+    rdfs:label "Humano Tecnológico" ;
+    dcterms:description "Humano que utiliza gadgets o tecnología sin poderes nativos." ;
+    rdfs:subClassOf ex:Humano,
+        ex:HumanoTecnologico,
+        ex:Personaje,
+        rdfs:Resource .
+
+ex:Personaje a rdfs:Class,
+        rdfs:Resource ;
+    rdfs:label "Personaje" ;
+    dcterms:description "Clase raíz para entidades del universo de cómics." ;
+    rdfs:subClassOf ex:Personaje,
+        rdfs:Resource .
+
+ex:Superheroe a rdfs:Class,
+        rdfs:Resource ;
+    rdfs:label "Superhéroe" ;
+    dcterms:description "Personaje enfocado en proteger la humanidad." ;
+    rdfs:subClassOf ex:Personaje,
+        ex:Superheroe,
+        rdfs:Resource .
+
+ex:Superpoder a rdfs:Class,
+        rdfs:Resource ;
+    rdfs:label "Superpoder" ;
+    dcterms:description "Habilidad sobrehumana o metahumana." ;
+    rdfs:subClassOf ex:Superpoder,
+        rdfs:Resource .
+
+ex:Supervillano a rdfs:Class,
+        rdfs:Resource ;
+    rdfs:label "Supervillano" ;
+    dcterms:description "Personaje antagonista que genera caos." ;
+    rdfs:subClassOf ex:Personaje,
+        ex:Supervillano,
+        rdfs:Resource .
+
+ex:VillanoDC a rdfs:Class,
+        rdfs:Resource ;
+    rdfs:label "Villano de DC" ;
+    dcterms:description "Supervillano de la editorial DC Comics." ;
+    rdfs:subClassOf ex:Personaje,
+        ex:Supervillano,
+        ex:VillanoDC,
+        rdfs:Resource .
+
+ex:VillanoMarvel a rdfs:Class,
+        rdfs:Resource ;
+    rdfs:label "Villano de Marvel" ;
+    dcterms:description "Supervillano de la editorial Marvel Comics." ;
+    rdfs:subClassOf ex:Personaje,
+        ex:Supervillano,
+        ex:VillanoMarvel,
+        rdfs:Resource .
+
+ex:Aquaman a ex:HeroeDC,
+        ex:Humano,
+        ex:HumanoMutado,
+        ex:Personaje,
+        ex:Superheroe,
+        rdfs:Resource ;
+    ex:poseeArmaMitica ex:TridenteDeNeptuno ;
+    ex:poseeArtefacto ex:TridenteDeNeptuno ;
+    ex:tienePoder ex:ComunicacionMarina ;
+    ex:usaIdentidadOculta false ;
+    ex:valorAmenaza 6 ;
+    ex:valorPoder 65 ;
+    ex:valorPopularidad 50 ;
+    foaf:name "Arthur Curry"^^xsd:string .
+
+ex:CapitanAmerica a ex:HeroeMarvel,
+        ex:Humano,
+        ex:HumanoMutado,
+        ex:Personaje,
+        ex:Superheroe,
+        rdfs:Resource ;
+    ex:poseeArtefacto ex:EscudoVibranium ;
+    ex:tienePoder ex:FuerzaMejorada ;
+    ex:usaIdentidadOculta false ;
+    ex:valorAmenaza 4 ;
+    ex:valorPoder 48 ;
+    ex:valorPopularidad 97 ;
+    foaf:name "Steve Rogers"^^xsd:string .
+
+ex:Carnage a ex:Humano,
+        ex:HumanoMutado,
+        ex:Personaje,
+        ex:Supervillano,
+        ex:VillanoMarvel,
+        rdfs:Resource ;
+    ex:tienePoder ex:Simbionte ;
+    ex:usaIdentidadOculta true ;
+    ex:valorAmenaza 5 ;
+    ex:valorPoder 68 ;
+    ex:valorPopularidad 50 ;
+    foaf:name "Cletus Kasady"^^xsd:string .
+
+ex:Darkseid a ex:Alienigena,
+        ex:Personaje,
+        ex:Supervillano,
+        ex:VillanoDC,
+        rdfs:Resource ;
+    ex:tienePoder ex:FuerzaDivina,
+        ex:RayosOmega ;
+    ex:usaIdentidadOculta false ;
+    ex:valorAmenaza 10 ;
+    ex:valorPoder 100 ;
+    ex:valorPopularidad 63 ;
+    foaf:name "Uxas"^^xsd:string .
+
+ex:DoctorDoom a ex:Humano,
+        ex:HumanoTecnologico,
+        ex:Personaje,
+        ex:Supervillano,
+        ex:VillanoMarvel,
+        rdfs:Resource ;
+    ex:poseeArtefacto ex:ArmaduraMisticotech ;
+    ex:tieneCapa true ;
+    ex:tienePoder ex:Hechiceria ;
+    ex:usaIdentidadOculta false ;
+    ex:valorAmenaza 9 ;
+    ex:valorPoder 90 ;
+    ex:valorPopularidad 90 ;
+    foaf:name "Victor von Doom"^^xsd:string .
+
+ex:GeneralZod a ex:Alienigena,
+        ex:Personaje,
+        ex:Supervillano,
+        ex:VillanoDC,
+        rdfs:Resource ;
+    ex:tieneCapa true ;
+    ex:tienePoder ex:Vuelo ;
+    ex:usaIdentidadOculta false ;
+    ex:valorAmenaza 7 ;
+    ex:valorPoder 70 ;
+    ex:valorPopularidad 80 ;
+    foaf:name "Dru-Zod"^^xsd:string .
+
+ex:GreenArrow a ex:HeroeDC,
+        ex:Humano,
+        ex:HumanoTecnologico,
+        ex:Personaje,
+        ex:Superheroe,
+        rdfs:Resource ;
+    ex:poseeArtefacto ex:ArcoGadgets ;
+    ex:usaIdentidadOculta false ;
+    ex:valorAmenaza 2 ;
+    ex:valorPoder 19 ;
+    ex:valorPopularidad 62 ;
+    foaf:name "Oliver Queen"^^xsd:string .
+
+ex:GreenGoblin a ex:Humano,
+        ex:HumanoTecnologico,
+        ex:Personaje,
+        ex:Supervillano,
+        ex:VillanoMarvel,
+        rdfs:Resource ;
+    ex:poseeArtefacto ex:PlaneadorBombas ;
+    ex:tienePoder ex:FuerzaMejorada ;
+    ex:usaIdentidadOculta true ;
+    ex:valorAmenaza 5 ;
+    ex:valorPoder 55 ;
+    ex:valorPopularidad 69 ;
+    foaf:name "Norman Osborn"^^xsd:string .
+
+ex:Hawkeye a ex:HeroeMarvel,
+        ex:Humano,
+        ex:HumanoTecnologico,
+        ex:Personaje,
+        ex:Superheroe,
+        rdfs:Resource ;
+    ex:poseeArtefacto ex:ArcoGadgets ;
+    ex:usaIdentidadOculta false ;
+    ex:valorAmenaza 3 ;
+    ex:valorPoder 22 ;
+    ex:valorPopularidad 76 ;
+    foaf:name "Clint Barton"^^xsd:string .
+
+ex:IronMan a ex:HeroeMarvel,
+        ex:Humano,
+        ex:HumanoTecnologico,
+        ex:Personaje,
+        ex:Superheroe,
+        rdfs:Resource ;
+    ex:poseeArtefacto ex:ArmaduraTech ;
+    ex:usaIdentidadOculta false ;
+    ex:valorAmenaza 6 ;
+    ex:valorPoder 78 ;
+    ex:valorPopularidad 93 ;
+    foaf:name "Tony Stark"^^xsd:string .
+
+ex:Riddler a ex:Humano,
+        ex:HumanoTecnologico,
+        ex:Personaje,
+        ex:Supervillano,
+        ex:VillanoDC,
+        rdfs:Resource ;
+    ex:poseeArtefacto ex:Acertijos ;
+    ex:usaIdentidadOculta true ;
+    ex:valorAmenaza 2 ;
+    ex:valorPoder 9 ;
+    ex:valorPopularidad 60 ;
+    foaf:name "Edward Nygma"^^xsd:string .
+
+ex:SilverSurfer a ex:Alienigena,
+        ex:HeroeMarvel,
+        ex:Personaje,
+        ex:Superheroe,
+        rdfs:Resource ;
+    ex:poseeArmaMitica ex:TablaCosmica ;
+    ex:poseeArtefacto ex:TablaCosmica ;
+    ex:tienePoder ex:PoderCosmico ;
+    ex:usaIdentidadOculta true ;
+    ex:valorAmenaza 9 ;
+    ex:valorPoder 95 ;
+    ex:valorPopularidad 37 ;
+    foaf:name "Norrin Radd"^^xsd:string .
+
+ex:SpiderMan a ex:HeroeMarvel,
+        ex:Humano,
+        ex:HumanoMutado,
+        ex:Personaje,
+        ex:Superheroe,
+        rdfs:Resource ;
+    ex:tienePoder ex:FuerzaSobrehumana,
+        ex:SentidoAracnido ;
+    ex:usaIdentidadOculta true ;
+    ex:valorAmenaza 5 ;
+    ex:valorPoder 64 ;
+    ex:valorPopularidad 100 ;
+    foaf:name "Peter Parker"^^xsd:string .
+
+ex:Supergirl a ex:Alienigena,
+        ex:HeroeDC,
+        ex:Personaje,
+        ex:Superheroe,
+        rdfs:Resource ;
+    ex:tieneCapa true ;
+    ex:tienePoder ex:Vuelo ;
+    ex:usaIdentidadOculta true ;
+    ex:valorAmenaza 7 ;
+    ex:valorPoder 90 ;
+    ex:valorPopularidad 50 ;
+    foaf:name "Kara Zor-El"^^xsd:string .
+
+ex:Thanos a ex:Alienigena,
+        ex:Personaje,
+        ex:Supervillano,
+        ex:VillanoMarvel,
+        rdfs:Resource ;
+    ex:poseeArmaMitica ex:Guantelete ;
+    ex:poseeArtefacto ex:Guantelete ;
+    ex:tienePoder ex:FuerzaSobrehumana ;
+    ex:usaIdentidadOculta false ;
+    ex:valorAmenaza 10 ;
+    ex:valorPoder 96 ;
+    ex:valorPopularidad 89 ;
+    foaf:name "Thanos"^^xsd:string .
+
+ex:Thor a ex:Alienigena,
+        ex:HeroeMarvel,
+        ex:Personaje,
+        ex:Superheroe,
+        rdfs:Resource ;
+    ex:poseeArmaMitica ex:Mjolnir ;
+    ex:poseeArtefacto ex:Mjolnir ;
+    ex:tieneCapa true ;
+    ex:tienePoder ex:ControlTrueno,
+        ex:FuerzaDivina ;
+    ex:usaIdentidadOculta false ;
+    ex:valorAmenaza 7 ;
+    ex:valorPoder 77 ;
+    ex:valorPopularidad 88 ;
+    foaf:name "Thor Odinson"^^xsd:string .
+
+ex:Venom a ex:Humano,
+        ex:HumanoMutado,
+        ex:Personaje,
+        ex:Supervillano,
+        ex:VillanoMarvel,
+        rdfs:Resource ;
+    ex:tienePoder ex:FuerzaSobrehumana,
+        ex:Simbionte ;
+    ex:usaIdentidadOculta true ;
+    ex:valorAmenaza 7 ;
+    ex:valorPoder 74 ;
+    ex:valorPopularidad 79 ;
+    foaf:name "Eddie Brock"^^xsd:string .
+
+ex:Vulture a ex:Humano,
+        ex:HumanoTecnologico,
+        ex:Personaje,
+        ex:Supervillano,
+        ex:VillanoMarvel,
+        rdfs:Resource ;
+    ex:poseeArtefacto ex:TrajeAlasTech ;
+    ex:usaIdentidadOculta true ;
+    ex:valorAmenaza 2 ;
+    ex:valorPoder 21 ;
+    ex:valorPopularidad 25 ;
+    foaf:name "Adrian Toomes"^^xsd:string .
+
+ex:Wolverine a ex:HeroeMarvel,
+        ex:Humano,
+        ex:HumanoMutado,
+        ex:Personaje,
+        ex:Superheroe,
+        rdfs:Resource ;
+    ex:poseeArtefacto ex:GarrasAdamantium ;
+    ex:tienePoder ex:FactorCurativo ;
+    ex:usaIdentidadOculta true ;
+    ex:valorAmenaza 6 ;
+    ex:valorPoder 65 ;
+    ex:valorPopularidad 80 ;
+    foaf:name "Logan"^^xsd:string .
+
+ex:WonderWoman a ex:HeroeDC,
+        ex:Humano,
+        ex:HumanoMutado,
+        ex:Personaje,
+        ex:Superheroe,
+        rdfs:Resource ;
+    ex:poseeArmaMitica ex:LazoDeLaVerdad ;
+    ex:poseeArtefacto ex:LazoDeLaVerdad ;
+    ex:tienePoder ex:FuerzaDivina ;
+    ex:usaIdentidadOculta false ;
+    ex:valorAmenaza 5 ;
+    ex:valorPoder 60 ;
+    ex:valorPopularidad 89 ;
+    foaf:name "Diana Prince"^^xsd:string .
+
+ex:Acertijos a ex:Equipamiento,
+        rdfs:Resource .
+
+ex:ArmaduraMisticotech a ex:Equipamiento,
+        rdfs:Resource .
+
+ex:ArmaduraTech a ex:Equipamiento,
+        rdfs:Resource .
+
+ex:Batarang a ex:Equipamiento,
+        rdfs:Resource .
+
+ex:ComunicacionMarina a ex:Superpoder,
+        rdfs:Resource .
+
+ex:ControlTrueno a ex:Superpoder,
+        rdfs:Resource .
+
+ex:EscudoVibranium a ex:Equipamiento,
+        rdfs:Resource .
+
+ex:FactorCurativo a ex:Superpoder,
+        rdfs:Resource .
+
+ex:GarrasAdamantium a ex:Equipamiento,
+        rdfs:Resource .
+
+ex:Hechiceria a ex:Superpoder,
+        rdfs:Resource .
+
+ex:PlaneadorBombas a ex:Equipamiento,
+        rdfs:Resource .
+
+ex:PoderCosmico a ex:Superpoder,
+        rdfs:Resource .
+
+ex:RayosOmega a ex:Superpoder,
+        rdfs:Resource .
+
+ex:SentidoAracnido a ex:Superpoder,
+        rdfs:Resource .
+
+ex:ToxinaRisa a ex:Equipamiento,
+        rdfs:Resource .
+
+ex:TrajeAlasTech a ex:Equipamiento,
+        rdfs:Resource .
+
+ex:TrajeKryptonita a ex:Equipamiento,
+        rdfs:Resource .
+
+ex:esArchienemigoDe a rdf:Property,
+        rdfs:Resource ;
+    rdfs:label "Es Archienemigo De" ;
+    dcterms:description "Subpropiedad para archirrivalidad histórica." ;
+    rdfs:subPropertyOf ex:esArchienemigoDe,
+        ex:esEnemigoDe .
+
+ex:poseeArmaMitica a rdf:Property,
+        rdfs:Resource ;
+    rdfs:label "Posee Arma Mítica" ;
+    dcterms:description "Subpropiedad para armas divinas/míticas." ;
+    rdfs:subPropertyOf ex:poseeArmaMitica,
+        ex:poseeArtefacto .
+
+ex:tieneCapa a rdf:Property,
+        rdfs:Resource ;
+    rdfs:label "Tiene Capa" ;
+    dcterms:description "Indica si el personaje viste capa en su traje." ;
+    rdfs:domain ex:Personaje ;
+    rdfs:range xsd:boolean ;
+    rdfs:subPropertyOf ex:tieneCapa .
+
+ex:tienePoder a rdf:Property,
+        rdfs:Resource ;
+    rdfs:label "Tiene Poder" ;
+    dcterms:description "Relaciona un personaje con su habilidad innata." ;
+    rdfs:domain ex:Personaje ;
+    rdfs:range ex:Superpoder ;
+    rdfs:subPropertyOf ex:tienePoder .
+
+ex:usaIdentidadOculta a rdf:Property,
+        rdfs:Resource ;
+    rdfs:label "Usa Identidad Oculta" ;
+    dcterms:description "Indica si oculta su cara/identidad." ;
+    rdfs:domain ex:Personaje ;
+    rdfs:range xsd:boolean ;
+    rdfs:subPropertyOf ex:usaIdentidadOculta .
+
+ex:valorAmenaza a rdf:Property,
+        rdfs:Resource ;
+    rdfs:label "Valor Amenaza" ;
+    dcterms:description "Métrica de 0 a 10 para lógica difusa." ;
+    rdfs:domain ex:Personaje ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf ex:valorAmenaza .
+
+ex:valorPoder a rdf:Property,
+        rdfs:Resource ;
+    rdfs:label "Valor Poder" ;
+    dcterms:description "Métrica de 0 a 100 para lógica difusa." ;
+    rdfs:domain ex:Personaje ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf ex:valorPoder .
+
+ex:valorPopularidad a rdf:Property,
+        rdfs:Resource ;
+    rdfs:label "Valor Popularidad" ;
+    dcterms:description "Métrica de 0 a 100 para lógica difusa." ;
+    rdfs:domain ex:Personaje ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf ex:valorPopularidad .
+
+dcterms:description a rdf:Property ;
+    rdfs:subPropertyOf dcterms:description .
+
+rdf:type a rdf:Property ;
+    rdfs:subPropertyOf rdf:type .
+
+rdfs:domain a rdf:Property ;
+    rdfs:subPropertyOf rdfs:domain .
+
+rdfs:label a rdf:Property ;
+    rdfs:subPropertyOf rdfs:label .
+
+rdfs:range a rdf:Property ;
+    rdfs:subPropertyOf rdfs:range .
+
+rdfs:subClassOf a rdf:Property ;
+    rdfs:subPropertyOf rdfs:subClassOf .
+
+rdfs:subPropertyOf a rdf:Property ;
+    rdfs:subPropertyOf rdfs:subPropertyOf .
+
+foaf:name a rdf:Property,
+        rdfs:Resource ;
+    rdfs:label "Nombre Real" ;
+    dcterms:description "Nombre civil o de identidad real (Vocabulario FOAF)." ;
+    rdfs:domain ex:Personaje ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf foaf:name .
+
+4 a rdfs:Resource,
+        xsd:integer .
+
+8 a rdfs:Resource,
+        xsd:integer .
+
+14 a rdfs:Resource,
+        xsd:integer .
+
+19 a rdfs:Resource,
+        xsd:integer .
+
+21 a rdfs:Resource,
+        xsd:integer .
+
+22 a rdfs:Resource,
+        xsd:integer .
+
+25 a rdfs:Resource,
+        xsd:integer .
+
+28 a rdfs:Resource,
+        xsd:integer .
+
+37 a rdfs:Resource,
+        xsd:integer .
+
+48 a rdfs:Resource,
+        xsd:integer .
+
+55 a rdfs:Resource,
+        xsd:integer .
+
+58 a rdfs:Resource,
+        xsd:integer .
+
+62 a rdfs:Resource,
+        xsd:integer .
+
+64 a rdfs:Resource,
+        xsd:integer .
+
+68 a rdfs:Resource,
+        xsd:integer .
+
+69 a rdfs:Resource,
+        xsd:integer .
+
+74 a rdfs:Resource,
+        xsd:integer .
+
+76 a rdfs:Resource,
+        xsd:integer .
+
+77 a rdfs:Resource,
+        xsd:integer .
+
+78 a rdfs:Resource,
+        xsd:integer .
+
+79 a rdfs:Resource,
+        xsd:integer .
+
+85 a rdfs:Resource,
+        xsd:integer .
+
+93 a rdfs:Resource,
+        xsd:integer .
+
+96 a rdfs:Resource,
+        xsd:integer .
+
+98 a rdfs:Resource,
+        xsd:integer .
+
+99 a rdfs:Resource,
+        xsd:integer .
+
+"Adrian Toomes"^^xsd:string a rdfs:Resource,
+        xsd:string .
+
+"Alienígena" a rdfs:Resource .
+
+"Artefacto, arma o tecnología empleada." a rdfs:Resource .
+
+"Arthur Curry"^^xsd:string a rdfs:Resource,
+        xsd:string .
+
+"Barry Allen"^^xsd:string a rdfs:Resource,
+        xsd:string .
+
+"Bruce Wayne"^^xsd:string a rdfs:Resource,
+        xsd:string .
+
+"Clark Kent"^^xsd:string a rdfs:Resource,
+        xsd:string .
+
+"Clase raíz para entidades del universo de cómics." a rdfs:Resource .
+
+"Cletus Kasady"^^xsd:string a rdfs:Resource,
+        xsd:string .
+
+"Clint Barton"^^xsd:string a rdfs:Resource,
+        xsd:string .
+
+"Desconocido"^^xsd:string a rdfs:Resource,
+        xsd:string .
+
+"Diana Prince"^^xsd:string a rdfs:Resource,
+        xsd:string .
+
+"Dru-Zod"^^xsd:string a rdfs:Resource,
+        xsd:string .
+
+"Eddie Brock"^^xsd:string a rdfs:Resource,
+        xsd:string .
+
+"Edward Nygma"^^xsd:string a rdfs:Resource,
+        xsd:string .
+
+"Eobard Thawne"^^xsd:string a rdfs:Resource,
+        xsd:string .
+
+"Equipamiento" a rdfs:Resource .
+
+"Es Archienemigo De" a rdfs:Resource .
+
+"Es Enemigo De" a rdfs:Resource .
+
+"Habilidad sobrehumana o metahumana." a rdfs:Resource .
+
+"Humano" a rdfs:Resource .
+
+"Humano Mutado" a rdfs:Resource .
+
+"Humano Tecnológico" a rdfs:Resource .
+
+"Humano con alteración biológica o genética." a rdfs:Resource .
+
+"Humano que utiliza gadgets o tecnología sin poderes nativos." a rdfs:Resource .
+
+"Héroe de DC" a rdfs:Resource .
+
+"Héroe de Marvel" a rdfs:Resource .
+
+"Indica si el personaje viste capa en su traje." a rdfs:Resource .
+
+"Indica si oculta su cara/identidad." a rdfs:Resource .
+
+"Kara Zor-El"^^xsd:string a rdfs:Resource,
+        xsd:string .
+
+"Lex Luthor"^^xsd:string a rdfs:Resource,
+        xsd:string .
+
+"Logan"^^xsd:string a rdfs:Resource,
+        xsd:string .
+
+"Métrica de 0 a 10 para lógica difusa." a rdfs:Resource .
+
+"Nombre Real" a rdfs:Resource .
+
+"Nombre civil o de identidad real (Vocabulario FOAF)." a rdfs:Resource .
+
+"Norman Osborn"^^xsd:string a rdfs:Resource,
+        xsd:string .
+
+"Norrin Radd"^^xsd:string a rdfs:Resource,
+        xsd:string .
+
+"Oliver Queen"^^xsd:string a rdfs:Resource,
+        xsd:string .
+
+"Personaje" a rdfs:Resource .
+
+"Personaje antagonista que genera caos." a rdfs:Resource .
+
+"Personaje de origen biológico terrestre." a rdfs:Resource .
+
+"Personaje enfocado en proteger la humanidad." a rdfs:Resource .
+
+"Personaje no humano proveniente del espacio exterior o reinos extra-dimensionales." a rdfs:Resource .
+
+"Peter Parker"^^xsd:string a rdfs:Resource,
+        xsd:string .
+
+"Posee Arma Mítica" a rdfs:Resource .
+
+"Posee Artefacto" a rdfs:Resource .
+
+"Relaciona un personaje con su equipamiento." a rdfs:Resource .
+
+"Relaciona un personaje con su habilidad innata." a rdfs:Resource .
+
+"Rivalidad combativa entre dos personajes." a rdfs:Resource .
+
+"Steve Rogers"^^xsd:string a rdfs:Resource,
+        xsd:string .
+
+"Subpropiedad para archirrivalidad histórica." a rdfs:Resource .
+
+"Subpropiedad para armas divinas/míticas." a rdfs:Resource .
+
+"Superhéroe" a rdfs:Resource .
+
+"Superhéroe de la editorial DC Comics." a rdfs:Resource .
+
+"Superhéroe de la editorial Marvel Comics." a rdfs:Resource .
+
+"Superpoder" a rdfs:Resource .
+
+"Supervillano" a rdfs:Resource .
+
+"Supervillano de la editorial DC Comics." a rdfs:Resource .
+
+"Supervillano de la editorial Marvel Comics." a rdfs:Resource .
+
+"Thanos"^^xsd:string a rdfs:Resource,
+        xsd:string .
+
+"Thor Odinson"^^xsd:string a rdfs:Resource,
+        xsd:string .
+
+"Tiene Capa" a rdfs:Resource .
+
+"Tiene Poder" a rdfs:Resource .
+
+"Tony Stark"^^xsd:string a rdfs:Resource,
+        xsd:string .
+
+"Usa Identidad Oculta" a rdfs:Resource .
+
+"Uxas"^^xsd:string a rdfs:Resource,
+        xsd:string .
+
+"Valor Amenaza" a rdfs:Resource .
+
+"Valor Poder" a rdfs:Resource .
+
+"Valor Popularidad" a rdfs:Resource .
+
+"Victor von Doom"^^xsd:string a rdfs:Resource,
+        xsd:string .
+
+"Villano de DC" a rdfs:Resource .
+
+"Villano de Marvel" a rdfs:Resource .
+
+ex:ArcoGadgets a ex:Equipamiento,
+        rdfs:Resource .
+
+ex:Batman a ex:HeroeDC,
+        ex:Humano,
+        ex:HumanoTecnologico,
+        ex:Personaje,
+        ex:Superheroe,
+        rdfs:Resource ;
+    ex:esArchienemigoDe ex:Joker ;
+    ex:esEnemigoDe ex:Joker ;
+    ex:poseeArtefacto ex:Batarang ;
+    ex:tieneCapa true ;
+    ex:usaIdentidadOculta true ;
+    ex:valorAmenaza 5 ;
+    ex:valorPoder 28 ;
+    ex:valorPopularidad 99 ;
+    foaf:name "Bruce Wayne"^^xsd:string .
+
+ex:Flash a ex:HeroeDC,
+        ex:Humano,
+        ex:HumanoMutado,
+        ex:Personaje,
+        ex:Superheroe,
+        rdfs:Resource ;
+    ex:esArchienemigoDe ex:ReverseFlash ;
+    ex:esEnemigoDe ex:ReverseFlash ;
+    ex:tienePoder ex:SuperVelocidad ;
+    ex:usaIdentidadOculta true ;
+    ex:valorAmenaza 7 ;
+    ex:valorPoder 85 ;
+    ex:valorPopularidad 70 ;
+    foaf:name "Barry Allen"^^xsd:string .
+
+ex:FuerzaMejorada a ex:Superpoder,
+        rdfs:Resource .
+
+ex:Guantelete a ex:Equipamiento,
+        rdfs:Resource .
+
+ex:Joker a ex:Humano,
+        ex:HumanoTecnologico,
+        ex:Personaje,
+        ex:Supervillano,
+        ex:VillanoDC,
+        rdfs:Resource ;
+    ex:esArchienemigoDe ex:Batman ;
+    ex:esEnemigoDe ex:Batman ;
+    ex:poseeArtefacto ex:ToxinaRisa ;
+    ex:usaIdentidadOculta false ;
+    ex:valorAmenaza 3 ;
+    ex:valorPoder 14 ;
+    ex:valorPopularidad 95 ;
+    foaf:name "Desconocido"^^xsd:string .
+
+ex:LazoDeLaVerdad a ex:Equipamiento,
+        rdfs:Resource .
+
+ex:LexLuthor a ex:Humano,
+        ex:HumanoTecnologico,
+        ex:Personaje,
+        ex:Supervillano,
+        ex:VillanoDC,
+        rdfs:Resource ;
+    ex:esArchienemigoDe ex:Superman ;
+    ex:esEnemigoDe ex:Superman ;
+    ex:poseeArtefacto ex:TrajeKryptonita ;
+    ex:usaIdentidadOculta false ;
+    ex:valorAmenaza 5 ;
+    ex:valorPoder 63 ;
+    ex:valorPopularidad 89 ;
+    foaf:name "Lex Luthor"^^xsd:string .
+
+ex:Mjolnir a ex:Equipamiento,
+        rdfs:Resource .
+
+ex:ReverseFlash a ex:Humano,
+        ex:HumanoMutado,
+        ex:Personaje,
+        ex:Supervillano,
+        ex:VillanoDC,
+        rdfs:Resource ;
+    ex:esArchienemigoDe ex:Flash ;
+    ex:esEnemigoDe ex:Flash ;
+    ex:tienePoder ex:SuperVelocidad ;
+    ex:usaIdentidadOculta true ;
+    ex:valorAmenaza 8 ;
+    ex:valorPoder 88 ;
+    ex:valorPopularidad 58 ;
+    foaf:name "Eobard Thawne"^^xsd:string .
+
+ex:Simbionte a ex:Superpoder,
+        rdfs:Resource .
+
+ex:SuperVelocidad a ex:Superpoder,
+        rdfs:Resource .
+
+ex:Superman a ex:Alienigena,
+        ex:HeroeDC,
+        ex:Personaje,
+        ex:Superheroe,
+        rdfs:Resource ;
+    ex:esArchienemigoDe ex:LexLuthor ;
+    ex:esEnemigoDe ex:LexLuthor ;
+    ex:tieneCapa true ;
+    ex:tienePoder ex:FuerzaSobrehumana,
+        ex:Vuelo ;
+    ex:usaIdentidadOculta true ;
+    ex:valorAmenaza 9 ;
+    ex:valorPoder 98 ;
+    ex:valorPopularidad 97 ;
+    foaf:name "Clark Kent"^^xsd:string .
+
+ex:TablaCosmica a ex:Equipamiento,
+        rdfs:Resource .
+
+ex:TridenteDeNeptuno a ex:Equipamiento,
+        rdfs:Resource .
+
+ex:esEnemigoDe a rdf:Property,
+        rdfs:Resource ;
+    rdfs:label "Es Enemigo De" ;
+    dcterms:description "Rivalidad combativa entre dos personajes." ;
+    rdfs:domain ex:Personaje ;
+    rdfs:range ex:Personaje ;
+    rdfs:subPropertyOf ex:esEnemigoDe .
+
+ex:poseeArtefacto a rdf:Property,
+        rdfs:Resource ;
+    rdfs:label "Posee Artefacto" ;
+    dcterms:description "Relaciona un personaje con su equipamiento." ;
+    rdfs:domain ex:Personaje ;
+    rdfs:range ex:Equipamiento ;
+    rdfs:subPropertyOf ex:poseeArtefacto .
+
+3 a rdfs:Resource,
+        xsd:integer .
+
+10 a rdfs:Resource,
+        xsd:integer .
+
+60 a rdfs:Resource,
+        xsd:integer .
+
+63 a rdfs:Resource,
+        xsd:integer .
+
+65 a rdfs:Resource,
+        xsd:integer .
+
+70 a rdfs:Resource,
+        xsd:integer .
+
+80 a rdfs:Resource,
+        xsd:integer .
+
+88 a rdfs:Resource,
+        xsd:integer .
+
+95 a rdfs:Resource,
+        xsd:integer .
+
+97 a rdfs:Resource,
+        xsd:integer .
+
+100 a rdfs:Resource,
+        xsd:integer .
+
+"Métrica de 0 a 100 para lógica difusa." a rdfs:Resource .
+
+ex:FuerzaDivina a ex:Superpoder,
+        rdfs:Resource .
+
+ex:Vuelo a ex:Superpoder,
+        rdfs:Resource .
+
+2 a rdfs:Resource,
+        xsd:integer .
+
+6 a rdfs:Resource,
+        xsd:integer .
+
+50 a rdfs:Resource,
+        xsd:integer .
+
+89 a rdfs:Resource,
+        xsd:integer .
+
+90 a rdfs:Resource,
+        xsd:integer .
+
+ex:FuerzaSobrehumana a ex:Superpoder,
+        rdfs:Resource .
+
+xsd:boolean a rdfs:Resource .
+
+9 a rdfs:Resource,
+        xsd:integer .
+
+7 a rdfs:Resource,
+        xsd:integer .
+
+5 a rdfs:Resource,
+        xsd:integer .
+
+rdfs:Class a rdfs:Resource .
+
+false a rdfs:Resource,
+        xsd:boolean .
+
+rdf:Property a rdfs:Resource .
+
+true a rdfs:Resource,
+        xsd:boolean .
+
+xsd:string a rdfs:Resource .
+
+xsd:integer a rdfs:Resource .
+
